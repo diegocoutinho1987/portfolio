@@ -21,22 +21,26 @@ body {
     background-color: var(--escuro);
     color: var(--claro);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
+/* Navegação */
 .navegacao {
     position: fixed;
     top: 0;
-    background-color: rgba(15, 23, 42, 0.8);
+    background-color: rgba(15, 23, 42, 0.9);
     width: 100%;
     z-index: 1000;
-    padding: 1.5rem;
+    padding: 1rem 1.5rem;
+    backdrop-filter: blur(10px);
 }
 
 .menu {
     display: flex;
     justify-content: center;
     list-style: none;
-    gap: 3rem;
+    gap: 2rem;
+    flex-wrap: wrap;
 }
 
 .menu-link {
@@ -55,49 +59,56 @@ body {
     bottom: 0;
     left: 0;
     background: linear-gradient(to right, var(--primaria), var(--secundaria));
+    transition: width 0.3s ease-in-out;
 }
 
 .menu-link:hover::after {
     width: 100%;
-    transition: width 0.3s ease-in-out;
 }
 
+/* Cabeçalho / Hero */
 .cabecalho {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    padding: 6rem 1.5rem 2rem;
     text-align: center;
     background: linear-gradient(to bottom, var(--escuro), var(--vidro));
 }
 
 .foto-perfil {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
+    max-width: 80vw;
+    max-height: 80vw;
     box-shadow: 0 0 20px rgba(79, 70, 229, 0.3);
     border-radius: 50%;
     border: 4px solid var(--vidro);
-    animation: flutuar 3s ease-in-out infinite;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: clamp(2rem, 5vw, 3rem);
     color: var(--primaria);
     font-weight: bold;
+    margin-bottom: 0.5rem;
 }
 
 .cabecalho-descricao {
-    font-size: 1.25rem;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
     color: var(--claro);
 }
 
+/* Seção Sobre */
 .sobre {
-    padding: 6rem 2rem;
+    padding: 4rem 1.5rem;
 }
 
 .sobre-titulo {
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
     color: var(--claro);
     text-align: center;
     margin-bottom: 2rem;
@@ -118,22 +129,23 @@ h1 {
     font-size: 1.125rem;
 }
 
+/* Seção Projetos */
 .projetos {
-    padding: 6rem 2rem;
-}
-
-.projetos-caixa {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 4rem 1.5rem;
 }
 
 .projetos-titulo {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
     margin-bottom: 2rem;
+}
+
+.projetos-caixa {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .projetos-card {
@@ -142,13 +154,13 @@ h1 {
     backdrop-filter: blur(5px);
     border: 1px solid var(--vidro);
     overflow: hidden;
-    transition: all 0.5s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
 }
 
 .projetos-card:hover {
     box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
-    transform: translateY(-10px) scale(1.03);
+    transform: translateY(-5px);
 }
 
 .projeto-imagem {
@@ -167,25 +179,27 @@ h1 {
 
 .projetos-descricao {
     color: rgba(226, 232, 240, 0.8);
-    line-height: 1.25rem;
+    line-height: 1.4;
 }
 
+/* Seção Contato */
 .contato {
-    padding: 6rem 2rem;
+    padding: 4rem 1.5rem;
 }
 
 .contato-titulo {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
     margin-bottom: 2rem;
 }
 
 .contato-formulario {
     max-width: 600px;
+    width: 100%;
     margin: 0 auto;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(5px);
-    padding: 2rem;
+    padding: 2rem 1.5rem;
     border: 1px solid var(--vidro);
     border-radius: 15px;
 }
@@ -202,6 +216,7 @@ h1 {
     border-radius: 8px;
     color: var(--claro);
     outline: none;
+    font-size: 1rem;
 }
 
 .contato-formulario-input:focus {
@@ -217,92 +232,97 @@ h1 {
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
+    font-size: 1rem;
     width: 100%;
-    transition: all 0.5s ease;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .contato-formulario-botao:hover {
-    background: linear-gradient(to right, var(--secundaria), var(--primaria));
     box-shadow: 0 5px 15px rgba(79, 70, 229, 0.3);
-    transform: translateY(-4px);
+    transform: translateY(-2px);
 }
 
-/* Estilos do Rodapé */
+/* Rodapé */
 .footer {
-  background-color: #0f172a;
-  color: #f8fafc;
-  padding: 3rem 1.5rem 2rem;
-  border-top: 1px solid #1e293b;
-  font-family: system-ui, -apple-system, sans-serif;
+    background-color: #0f172a;
+    color: #f8fafc;
+    padding: 3rem 1.5rem 2rem;
+    border-top: 1px solid #1e293b;
 }
 
 .footer-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-  text-align: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    text-align: center;
 }
 
 .footer-info h3 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 0.25rem;
-  color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: #ffffff;
 }
 
 .footer-info p {
-  color: #94a3b8;
-  font-size: 0.9rem;
+    color: #94a3b8;
+    font-size: 0.9rem;
 }
 
-/* Redes Sociais */
 .footer-social {
-  display: flex;
-  gap: 1.25rem;
-  align-items: center;
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
 }
 
 .footer-social a {
-  color: #94a3b8;
-  transition: color 0.2s ease, transform 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    color: #94a3b8;
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .footer-social a:hover {
-  color: #38bdf8; /* Cor destaque ao passar o mouse */
-  transform: translateY(-3px);
+    color: #38bdf8;
+    transform: translateY(-3px);
 }
 
-/* Direitos Autorais */
 .footer-copyright {
-  margin-top: 1rem;
-  border-top: 1px solid #1e293b;
-  width: 100%;
-  padding-top: 1.5rem;
+    margin-top: 1rem;
+    border-top: 1px solid #1e293b;
+    width: 100%;
+    padding-top: 1.5rem;
 }
 
 .footer-copyright p {
-  color: #64748b;
-  font-size: 0.8rem;
+    color: #64748b;
+    font-size: 0.8rem;
 }
 
-/* Responsividade */
+/* Media Queries para Telas Maiores (Desktop / Tablet) */
 @media (min-width: 768px) {
-  .footer-container {
-    flex-direction: row;
-    justify-content: space-between;
-    text-align: left;
-  }
+    .menu {
+        gap: 3rem;
+    }
 
-  .footer-copyright {
-    border-top: none;
-    margin-top: 0;
-    padding-top: 0;
-    width: auto;
-  }
+    .sobre, .projetos, .contato {
+        padding: 6rem 2rem;
+    }
+
+    .footer-container {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .footer-copyright {
+        border-top: none;
+        margin-top: 0;
+        padding-top: 0;
+        width: auto;
+    }
 }
