@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
@@ -6,6 +7,7 @@
     <title>Diego Coutinho | Portfólio</title>
     <link rel="stylesheet" href="./css/style.css" />
   </head>
+
   <body>
     <nav class="navegacao">
       <ul class="menu">
@@ -43,7 +45,9 @@
           <img src="./img/projeto.png" alt="Projeto 1" class="projeto-imagem" />
           <div class="projetos-card-conteudo">
             <h3 class="projetos-titulo-card">Projeto 1</h3>
-            <p class="projetos-descricao">Lore ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p class="projetos-descricao">
+              Lore ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
           </div>
         </div>
 
@@ -51,7 +55,9 @@
           <img src="./img/projeto.png" alt="Projeto 2" class="projeto-imagem" />
           <div class="projetos-card-conteudo">
             <h3 class="projetos-titulo-card">Projeto 2</h3>
-            <p class="projetos-descricao">Lore ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p class="projetos-descricao">
+              Lore ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
           </div>
         </div>
 
@@ -59,32 +65,53 @@
           <img src="./img/projeto.png" alt="Projeto 3" class="projeto-imagem" />
           <div class="projetos-card-conteudo">
             <h3 class="projetos-titulo-card">Projeto 3</h3>
-            <p class="projetos-descricao">Lore ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p class="projetos-descricao">
+              Lore ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
     <section id="contato" class="contato">
-      <h2 class="contato-titulo">Contato</h2>
-      <form class="formulario-contato" id="formulario">
-        <div class="formulario-grupo">
+      <h2 class="contato-titulo">Entre em Contato</h2>
+      <form
+        id="formulario"
+        class="contato-formulario"
+        onsubmit="enviarMensagem(event)"
+      >
+        <div class="contato-formulario-grupo">
           <input
             type="text"
             name="nome"
             placeholder="Nome"
-            class="formulario-input"
+            class="contato-formulario-input"
+            id="nome"
           />
         </div>
-        <div class="formulario-grupo">
+        <div class="contato-formulario-grupo">
           <textarea
             name="mensagem"
             placeholder="Mensagem"
-            class="formulario-textarea"
+            rows="4"
+            class="contato-formulario-input"
+            id="mensagem"
           ></textarea>
         </div>
-        <button type="submit" class="formulario-botao">Enviar</button>
+        <button type="submit" class="contato-formulario-botao">Enviar</button>
       </form>
     </section>
+    <script src="./js/script.js">
+      function enviarMensagem(event) {
+      event.preventDefault();
+      const nomeInput = document.getElementById('nome');
+      const mensagemInput = document.getElementById('mensagem');
+      const telefone = '5586999704740'; // Substitua pelo número de telefone desejado
+      const texto = `Olá!, sou ${nomeInput.value} e gostaria de entrar em contato. Minha mensagem é: ${mensagemInput.value}`;
+      const msgFormatada = encodeURIComponent(texto);
+      const url = `https://api.whatsapp.com/send?phone=${telefone}&text=${msgFormatada}`;
+      window.open(url, '_blank');
+      }
+    </script>
   </body>
 </html>
