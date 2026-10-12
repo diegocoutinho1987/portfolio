@@ -107,7 +107,7 @@
       const nomeInput = document.getElementById('nome').value;
       const mensagemInput = document.getElementById('mensagem').value;
       const telefone = '5586999704740'; // Substitua pelo número de telefone desejado
-      const texto = `Olá!, sou ${nomeInput} e gostaria de entrar em contato. Minha mensagem é: ${mensagemInput}`;
+      const texto = `Olá!, sou ${nomeInput}, ${mensagemInput}`;
       const msgFormatada = encodeURIComponent(texto);
       const url = `https://wa.me/${telefone}?text=${msgFormatada}`;
       window.open(url, '_blank');
