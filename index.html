@@ -1,230 +1,444 @@
-<!doctype html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Diego Coutinho | Portfólio</title>
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="icon" type="image/svg+xml" href="./img/favicon.svg" />
-    <link rel="alternate icon" href="./img/favicon.svg" type="image/svg+xml" />
-  </head>
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diego Coutinho | Grupo VIP de Promoções & Descontos</title>
+    
+    <!-- Meta Tags SEO & Redes Sociais -->
+    <meta name="description" content="Entre no grupo VIP de ofertas do Diego Coutinho no WhatsApp e receba cupons diários, ofertas relâmpago e achadinhos em primeira mão.">
+    <meta name="author" content="Diego Coutinho">
+    <meta property="og:title" content="Diego Coutinho | Grupo VIP de Promoções & Descontos">
+    <meta property="og:description" content="Receba cupons de desconto, ofertas relâmpago e alertas de menor preço no WhatsApp.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://diegocoutinho.com.br">
 
-  <body>
-    <nav class="navegacao">
-      <ul class="menu">
-        <li><a href="#inicio" class="menu-link">Início</a></li>
-        <li><a href="#sobre" class="menu-link">Sobre</a></li>
-        <li><a href="#projetos" class="menu-link">Projetos</a></li>
-        <li><a href="#contato" class="menu-link">Contato</a></li>
-      </ul>
-    </nav>
-
-    <main id="inicio" class="cabecalho">
-      <img
-        src="./img/diegocoutinho.png"
-        alt="Foto de Diego Coutinho"
-        class="foto-perfil"
-      />
-      <h1>Diego Coutinho</h1>
-      <p class="cabecalho-descricao">Desenvolvedor Full Stack</p>
-    </main>
-
-    <section id="sobre" class="sobre">
-      <h2 class="sobre-titulo">Sobre</h2>
-      <div class="sobre-caixa">
-        <p class="sobre-paragrafo">
-          Olá, sou Diego Coutinho, desenvolvedor Full Stack com experiência em criar sistemas modernos e responsivos.
-        </p>
-      </div>
-    </section>
-
-    <section id="projetos" class="projetos">
-      <h2 class="projetos-titulo">Meus Projetos</h2>
-      <div class="projetos-caixa">
-        <div class="projetos-card">
-          <img src="./img/projeto.png" alt="Projeto 1" class="projeto-imagem" />
-          <div class="projetos-card-conteudo">
-            <h3 class="projetos-titulo-card">Projeto 1</h3>
-            <p class="projetos-descricao">
-              Lore ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-          </div>
-        </div>
-
-        <div class="projetos-card">
-          <img src="./img/projeto.png" alt="Projeto 2" class="projeto-imagem" />
-          <div class="projetos-card-conteudo">
-            <h3 class="projetos-titulo-card">Projeto 2</h3>
-            <p class="projetos-descricao">
-              Lore ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-          </div>
-        </div>
-
-        <div class="projetos-card">
-          <img src="./img/projeto.png" alt="Projeto 3" class="projeto-imagem" />
-          <div class="projetos-card-conteudo">
-            <h3 class="projetos-titulo-card">Projeto 3</h3>
-            <p class="projetos-descricao">
-              Lore ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contato" class="contato">
-      <h2 class="contato-titulo">Entre em Contato</h2>
-      <form
-        id="formulario"
-        class="contato-formulario"
-        onsubmit="enviarMensagem(event)"
-      >
-        <div class="contato-formulario-grupo">
-          <input
-            type="text"
-            name="nome"
-            placeholder="Nome"
-            class="contato-formulario-input"
-            id="nome"
-            required
-          />
-        </div>
-        <div class="contato-formulario-grupo">
-          <textarea
-            name="mensagem"
-            placeholder="Mensagem"
-            rows="4"
-            class="contato-formulario-input"
-            id="mensagem"
-            required
-          ></textarea>
-        </div>
-        <button type="submit" class="contato-formulario-botao">Enviar</button>
-      </form>
-    </section>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <script>
-      function enviarMensagem(event) {
-        event.preventDefault();
-        const nomeInput = document.getElementById("nome").value;
-        const mensagemInput = document.getElementById("mensagem").value;
-        const telefone = "5586999704740";
-        const texto = `Olá!, sou ${nomeInput}, ${mensagemInput}`;
-        const msgFormatada = encodeURIComponent(texto);
-        const url = `https://wa.me/${telefone}?text=${msgFormatada}`;
-        window.open(url, "_blank");
-      }
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        whatsapp: {
+                            DEFAULT: '#25D366',
+                            hover: '#20bd5a',
+                            dark: '#128C7E',
+                        }
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%, 100%': { boxShadow: '0 0 20px rgba(37, 211, 102, 0.4), 0 0 35px rgba(37, 211, 102, 0.2)' },
+                            '50%': { boxShadow: '0 0 35px rgba(37, 211, 102, 0.75), 0 0 55px rgba(37, 211, 102, 0.45)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-4px)' },
+                        }
+                    },
+                    animation: {
+                        'pulse-glow': 'pulseGlow 2.5s infinite ease-in-out',
+                        'float': 'float 4s ease-in-out infinite',
+                    }
+                }
+            }
+        }
     </script>
 
-    <footer class="footer">
-      <div class="footer-container">
-        <div class="footer-info">
-          <h3>Diego Coutinho</h3>
-          <p>Desenvolvedor full stack</p>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            max-width: 100vw;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #090D14;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(37, 211, 102, 0.09) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.09) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        /* Glassmorphism Efeitos */
+        .glass-card {
+            background: rgba(21, 28, 40, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-button {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-button:hover {
+            background: rgba(255, 255, 255, 0.09);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Avatar styling & contrast shadow */
+        .avatar-container {
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.35);
+        }
+
+        /* Scrollbar interna dos modais */
+        .modal-body::-webkit-scrollbar {
+            width: 6px;
+        }
+        .modal-body::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+        .modal-body::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body class="text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-whatsapp selection:text-black">
+
+    <!-- Container Principal Responsivo (Adapta-se desde 320px até grandes monitores) -->
+    <main class="w-full max-w-[480px] mx-auto px-3 sm:px-5 py-6 sm:py-8 flex-grow flex flex-col items-center">
+
+        <!-- ================= HEADER / SEÇÃO DE PERFIL ================= -->
+        <header class="flex flex-col items-center text-center mb-6 w-full animate-float">
+            
+            <!-- Foto de Perfil com Imagem Dentro do Círculo -->
+            <div class="relative mb-4 group">
+                <!-- Anel de Gradiente com Brilho Externo -->
+                <div class="w-[108px] h-[108px] sm:w-[116px] sm:h-[116px] rounded-full p-[3px] bg-gradient-to-tr from-whatsapp via-emerald-400 to-blue-500 shadow-[0_0_25px_rgba(37,211,102,0.35)] flex items-center justify-center">
+                    <!-- Container da Foto do Avatar -->
+                    <div class="avatar-container w-full h-full rounded-full bg-slate-900 overflow-hidden border border-slate-700/60 relative flex items-center justify-center">
+                        <img src="diegocoutinho.png" 
+                             alt="Diego Coutinho" 
+                             class="w-full h-full object-cover object-top rounded-full transition-transform duration-300 group-hover:scale-105">
+                    </div>
+                </div>
+
+                <!-- Badge VIP Ativo -->
+                <div class="absolute bottom-0 right-0 bg-slate-950 border border-emerald-500/50 rounded-full px-2 py-0.5 flex items-center gap-1.5 shadow-lg">
+                    <span class="w-2 h-2 rounded-full bg-whatsapp animate-ping"></span>
+                    <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400">VIP ON</span>
+                </div>
+            </div>
+
+            <!-- Nome & Selo de Verificado -->
+            <div class="flex items-center justify-center gap-1.5 mb-0.5">
+                <h1 class="text-xl sm:text-2xl font-black tracking-tight text-white">Diego Coutinho</h1>
+                <!-- Selo Verificado SVG -->
+                <svg class="w-4 h-4 sm:w-5 sm:h-5 text-blue-500 fill-current shrink-0" viewBox="0 0 24 24" title="Perfil Verificado">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+            </div>
+
+            <!-- Domínio / Handle da Bio -->
+            <p class="text-xs font-semibold text-emerald-400 tracking-wide mb-2 break-all">@diegocoutinho.com.br</p>
+
+            <!-- Mini Apresentação -->
+            <p class="text-slate-400 text-xs font-medium max-w-xs px-2">
+                Seu guia diário para economizar nas melhores compras online.
+            </p>
+        </header>
+
+        <!-- ================= CARD HERO (WHATSAPP VIP CTA) ================= -->
+        <section class="w-full mb-6">
+            <div class="glass-card rounded-3xl p-4 sm:p-6 relative overflow-hidden shadow-2xl border border-white/10 text-center">
+                
+                <!-- Badge de Topo -->
+                <div class="inline-flex items-center gap-1.5 bg-whatsapp/10 border border-whatsapp/30 rounded-full px-3 py-1 text-[11px] sm:text-xs font-semibold text-whatsapp mb-3 max-w-full">
+                    <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                    </svg>
+                    <span class="truncate">Grupo Exclusivo no WhatsApp</span>
+                </div>
+
+                <!-- Headline Persuasiva -->
+                <h2 class="text-lg sm:text-2xl font-black text-white leading-snug mb-2">
+                    Economize de Verdade com Promoções e Descontos Exclusivos!
+                </h2>
+
+                <!-- Subheadline Benefícios -->
+                <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6">
+                    Receba diariamente cupons de desconto, ofertas relâmpago, achadinhos e alertas de menor preço antes de todo mundo!
+                </p>
+
+                <!-- BOTÃO CTA PRINCIPAL WHATSAPP -->
+                <a href="https://chat.whatsapp.com/SEU-LINK-DO-GRUPO-AQUI" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   id="whatsapp-cta"
+                   class="w-full bg-[#25D366] hover:bg-whatsapp-hover text-slate-950 font-black text-sm sm:text-lg py-3.5 sm:py-4 px-4 sm:px-6 rounded-2xl flex items-center justify-center gap-2.5 sm:gap-3 transition-all transform active:scale-95 shadow-lg animate-pulse-glow group">
+                    
+                    <!-- Ícone WhatsApp SVG -->
+                    <svg class="w-6 h-6 sm:w-7 sm:h-7 fill-current transition-transform group-hover:scale-110 shrink-0" viewBox="0 0 24 24">
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                    </svg>
+
+                    <span class="tracking-wide">ENTRAR NO GRUPO VIP</span>
+                </a>
+
+                <!-- Microcopy abaixo do CTA -->
+                <p class="mt-4 text-[10px] sm:text-[11px] text-slate-400 font-medium tracking-wide">
+                    100% Gratuito • Sem Spam • Saia quando quiser
+                </p>
+            </div>
+        </section>
+
+        <!-- ================= SEÇÃO DE REDES SOCIAIS ================= -->
+        <section class="w-full space-y-3 mb-8">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2 px-1">Redes Sociais & Canais</h3>
+
+            <!-- Link: Instagram -->
+            <a href="https://instagram.com/diegocoutinho" target="_blank" rel="noopener noreferrer" class="glass-button w-full p-3.5 sm:p-4 rounded-2xl flex items-center justify-between group">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center text-pink-500 group-hover:scale-105 transition-transform shrink-0">
+                        <!-- Instagram SVG -->
+                        <svg class="w-4 h-4 sm:w-5 sm:h-5 fill-current" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-xs sm:text-sm font-bold text-white group-hover:text-pink-400 transition-colors">Instagram</div>
+                        <div class="text-[11px] sm:text-xs text-slate-400">@diegocoutinho</div>
+                    </div>
+                </div>
+                <svg class="w-4 h-4 text-slate-500 group-hover:text-white group-hover:translate-x-1 transition-all shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+
+            <!-- Link: TikTok -->
+            <a href="https://tiktok.com/@diegocoutinho" target="_blank" rel="noopener noreferrer" class="glass-button w-full p-3.5 sm:p-4 rounded-2xl flex items-center justify-between group">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:scale-105 transition-transform shrink-0">
+                        <!-- TikTok SVG -->
+                        <svg class="w-4 h-4 sm:w-5 sm:h-5 fill-current" viewBox="0 0 24 24">
+                            <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.82.57-1.31 1.55-1.35 2.54-.04.9.31 1.8.97 2.4.74.67 1.77.93 2.74.79 1.05-.14 2.01-.84 2.47-1.8.27-.58.37-1.22.37-1.86.01-4.71.01-9.43.01-14.14z"/>
+                        </svg>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-xs sm:text-sm font-bold text-white group-hover:text-cyan-400 transition-colors">TikTok</div>
+                        <div class="text-[11px] sm:text-xs text-slate-400">@diegocoutinho</div>
+                    </div>
+                </div>
+                <svg class="w-4 h-4 text-slate-500 group-hover:text-white group-hover:translate-x-1 transition-all shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+
+            <!-- Link: YouTube -->
+            <a href="https://youtube.com/@diegocoutinho" target="_blank" rel="noopener noreferrer" class="glass-button w-full p-3.5 sm:p-4 rounded-2xl flex items-center justify-between group">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-500 group-hover:scale-105 transition-transform shrink-0">
+                        <!-- YouTube SVG -->
+                        <svg class="w-4 h-4 sm:w-5 sm:h-5 fill-current" viewBox="0 0 24 24">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                    </div>
+                    <div class="text-left">
+                        <div class="text-xs sm:text-sm font-bold text-white group-hover:text-red-400 transition-colors">YouTube</div>
+                        <div class="text-[11px] sm:text-xs text-slate-400">Canal Diego Coutinho</div>
+                    </div>
+                </div>
+                <svg class="w-4 h-4 text-slate-500 group-hover:text-white group-hover:translate-x-1 transition-all shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+        </section>
+
+    </main>
+
+    <!-- ================= RODAPÉ INSTITUCIONAL ================= -->
+    <footer class="w-full border-t border-white/5 bg-slate-950/80 backdrop-blur-md py-5 sm:py-6 px-4 mt-auto">
+        <div class="max-w-[480px] mx-auto text-center">
+            
+            <!-- Links dos Modais -->
+            <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-[11px] sm:text-xs font-medium text-slate-400 mb-3 sm:mb-4">
+                <button onclick="openModal('modal-privacidade')" class="hover:text-whatsapp transition-colors">Política de Privacidade</button>
+                <span class="text-slate-700">•</span>
+                <button onclick="openModal('modal-termos')" class="hover:text-whatsapp transition-colors">Termos de Uso</button>
+                <span class="text-slate-700">•</span>
+                <button onclick="openModal('modal-contato')" class="hover:text-whatsapp transition-colors">Contato</button>
+            </div>
+
+            <!-- Copyright -->
+            <p class="text-[10px] sm:text-[11px] text-slate-500">
+                © 2026 diegocoutinho.com.br — Todos os direitos reservados.
+            </p>
         </div>
-
-        <!-- Redes Sociais e Contato -->
-        <div class="footer-social">
-          <!-- GitHub -->
-          <a
-            href="https://github.com/diegocoutinho1987"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
-              ></path>
-              <path d="M9 18c-4.51 2-5-2-7-2"></path>
-            </svg>
-          </a>
-
-          <!-- LinkedIn -->
-          <a
-            href="https://www.linkedin.com/in/diego-vieira-coutinho/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
-              ></path>
-              <rect x="2" y="9" width="4" height="12"></rect>
-              <circle cx="4" cy="4" r="2"></circle>
-            </svg>
-          </a>
-
-          <!-- WhatsApp -->
-          <a
-            href="https://wa.me/5586999704740"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="WhatsApp"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-              ></path>
-            </svg>
-          </a>
-
-          <!-- E-mail -->
-          <a href="mailto:diegocoutinho1987@gmail.com" aria-label="E-mail">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-            </svg>
-          </a>
-        </div>
-
-        <!-- Direitos Autorais -->
-        <div class="footer-copyright">
-          <p>&copy; 2026 Diego Coutinho. Todos os direitos reservados.</p>
-        </div>
-      </div>
     </footer>
-  </body>
+
+    <!-- ================= MODAIS INTERATIVOS ================= -->
+
+    <!-- Modal 1: Política de Privacidade (LGPD & diegocoutinho.com.br) -->
+    <div id="modal-privacidade" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+        <div class="glass-card w-full max-w-md rounded-2xl overflow-hidden shadow-2xl border border-white/10 flex flex-col max-h-[85vh]">
+            <div class="p-4 border-b border-white/10 flex items-center justify-between bg-slate-900/60">
+                <h3 class="text-sm font-bold text-white flex items-center gap-2">
+                    <svg class="w-4 h-4 text-whatsapp" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                    Política de Privacidade (LGPD)
+                </h3>
+                <button onclick="closeModal('modal-privacidade')" class="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-white/10">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <div class="p-5 overflow-y-auto text-xs text-slate-300 space-y-3 leading-relaxed modal-body">
+                <p>A presente Política de Privacidade regula o tratamento de dados do domínio <strong>diegocoutinho.com.br</strong> em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018).</p>
+                
+                <h4 class="font-bold text-white text-xs mt-3 uppercase tracking-wider">1. Coleta e Finalidade dos Dados</h4>
+                <p>Não coletamos informações pessoais sensíveis diretamente na navegação desta landing page. Eventuais dados fornecidos voluntariamente (como ao entrar em grupos ou enviar e-mails de contato) são utilizados exclusivamente para comunicação direta e envio de ofertas.</p>
+
+                <h4 class="font-bold text-white text-xs mt-3 uppercase tracking-wider">2. Links de Afiliados e Parceiros</h4>
+                <p>O site <strong>diegocoutinho.com.br</strong> participa de programas de afiliados (como Amazon, Mercado Livre, Shopee, Magalu e AliExpress). Ao clicar em nossas ofertas, você pode ser redirecionado para plataformas parceiras que possuem suas próprias políticas de cookies e privacidade.</p>
+
+                <h4 class="font-bold text-white text-xs mt-3 uppercase tracking-wider">3. Seus Direitos</h4>
+                <p>Você tem o direito de solicitar a confirmação, acesso, correção ou eliminação de seus dados pessoais armazenados a qualquer momento pelo e-mail oficial de contato.</p>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-slate-900/60 flex justify-end">
+                <button onclick="closeModal('modal-privacidade')" class="bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs py-2 px-4 rounded-xl transition-colors">
+                    Entendido
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: Termos de Uso -->
+    <div id="modal-termos" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+        <div class="glass-card w-full max-w-md rounded-2xl overflow-hidden shadow-2xl border border-white/10 flex flex-col max-h-[85vh]">
+            <div class="p-4 border-b border-white/10 flex items-center justify-between bg-slate-900/60">
+                <h3 class="text-sm font-bold text-white flex items-center gap-2">
+                    <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                    Termos de Uso
+                </h3>
+                <button onclick="closeModal('modal-termos')" class="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-white/10">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <div class="p-5 overflow-y-auto text-xs text-slate-300 space-y-3 leading-relaxed modal-body">
+                <p>Ao acessar o site e utilizar os links de <strong>diegocoutinho.com.br</strong>, você aceita os seguintes termos:</p>
+
+                <h4 class="font-bold text-white text-xs mt-3 uppercase tracking-wider">1. Atualização de Ofertas e Preços</h4>
+                <p>Os preços, estoques e cupons divulgados nos nossos canais e grupos são de responsabilidade integral das lojas parceiras e estão sujeitos a alterações sem aviso prévio.</p>
+
+                <h4 class="font-bold text-white text-xs mt-3 uppercase tracking-wider">2. Regras da Comunidade no WhatsApp</h4>
+                <p>Nosso grupo é voltado exclusivamente ao compartilhamento de ofertas. É proibido o envio de spam, mensagens ofensivas ou links de terceiros sem autorização prévia.</p>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-slate-900/60 flex justify-end">
+                <button onclick="closeModal('modal-termos')" class="bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs py-2 px-4 rounded-xl transition-colors">
+                    Aceitar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3: Contato (Com botão de copiar e-mail) -->
+    <div id="modal-contato" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+        <div class="glass-card w-full max-w-md rounded-2xl overflow-hidden shadow-2xl border border-white/10 flex flex-col">
+            <div class="p-4 border-b border-white/10 flex items-center justify-between bg-slate-900/60">
+                <h3 class="text-sm font-bold text-white flex items-center gap-2">
+                    <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    Contato & Parcerias
+                </h3>
+                <button onclick="closeModal('modal-contato')" class="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-white/10">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <div class="p-5 text-xs text-slate-300 space-y-4">
+                <p>Para parcerias comerciais, dúvidas ou suporte, entre em contato através do e-mail oficial abaixo:</p>
+                
+                <div class="bg-slate-900/80 p-4 rounded-xl border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
+                    <span id="email-address" class="text-sm font-bold text-emerald-400 select-all">
+                        contato@diegocoutinho.com.br
+                    </span>
+                    <button onclick="copyEmail()" id="copy-email-btn" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white font-semibold text-xs py-2 px-3 rounded-lg flex items-center justify-center gap-1.5 transition-colors">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                        <span id="copy-email-text">Copiar E-mail</span>
+                    </button>
+                </div>
+
+                <p class="text-[11px] text-slate-400">
+                    Respondemos mensagens de trabalho e parcerias em até 24h úteis.
+                </p>
+            </div>
+            <div class="p-4 border-t border-white/10 bg-slate-900/60 flex justify-end">
+                <button onclick="closeModal('modal-contato')" class="bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs py-2 px-4 rounded-xl transition-colors">
+                    Fechar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script>
+        // Abertura de Modal
+        function openModal(id) {
+            const el = document.getElementById(id);
+            if(el) {
+                el.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // Fechamento de Modal
+        function closeModal(id) {
+            const el = document.getElementById(id);
+            if(el) {
+                el.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Fechar ao clicar fora do Modal
+        window.addEventListener('click', function(e) {
+            ['modal-privacidade', 'modal-termos', 'modal-contato'].forEach(id => {
+                const modal = document.getElementById(id);
+                if (e.target === modal) closeModal(id);
+            });
+        });
+
+        // Fechar ao pressionar ESC
+        window.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                ['modal-privacidade', 'modal-termos', 'modal-contato'].forEach(id => closeModal(id));
+            }
+        });
+
+        // Função de copiar e-mail com document.execCommand para compatibilidade com iframe/webviews
+        function copyEmail() {
+            const textToCopy = "contato@diegocoutinho.com.br";
+            const dummy = document.createElement("input");
+            document.body.appendChild(dummy);
+            dummy.value = textToCopy;
+            dummy.select();
+            document.execCommand("copy");
+            document.body.removeChild(dummy);
+
+            const btnText = document.getElementById('copy-email-text');
+            const btn = document.getElementById('copy-email-btn');
+            
+            btnText.innerText = "Copiado!";
+            btn.classList.add('bg-emerald-500/20', 'text-emerald-400');
+
+            setTimeout(() => {
+                btnText.innerText = "Copiar E-mail";
+                btn.classList.remove('bg-emerald-500/20', 'text-emerald-400');
+            }, 2500);
+        }
+    </script>
+</body>
 </html>
